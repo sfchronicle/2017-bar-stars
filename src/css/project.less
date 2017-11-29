@@ -1,18 +1,37 @@
-
-.refuge-container{
+.profile{
+  padding:20px 0;
+}
+.barstars-container{
   .display-flex;
   .flex-direction(row);
   .align-items(center);
   color:#fff;
+  line-height:0;
   .justify-content(space-between);
 
   @media @w900{
     .flex-direction(column-reverse);
   }
-}
 
-.refuge-container img {
-  width: 100%;
+  img {
+    width: 100%;
+  }
+
+  .credit{
+    margin-bottom:10px;
+    font-size:14px;
+    color:#ccc;
+    font-family:@block-graphics;
+
+    a{
+      color:#ccc;
+      text-decoration:underline;
+    }
+
+    @media @w900{
+      text-align:center;
+    }
+  }
 }
 
 .dtf-btn {
@@ -27,23 +46,29 @@
   padding: 4px 7px;
 }
 
-.refuge-container .flex-right {
+.barstars-container .flex-right {
   .flex(0 0 60%);
 
 }
 
-.refuge-container .flex-left {
+.barstars-container .flex-left {
   .flex(0 0 30%);
 
   h1{
-    font-size:55px;
-    font-family:@bold-graphics;
+    font-size:100px;
+    font-family:@body;
     line-height:1;
 
     @media @w900{
       text-align:center;
       margin-top:15px;
-      font-size:30px;
+      font-size:45px;
+    }
+  }
+
+  .subhead{
+    @media @w900{
+      text-align:center;
     }
   }
 
@@ -66,6 +91,141 @@
       font-size:9px;
       margin:0;
       padding-right:10px;
+    }
+  }
+}
+
+.barstars{
+  background:#fff;
+
+  .text-intro{
+    max-width:700px;
+    margin:40px auto 0;
+    padding: 40px 15px 0;
+
+    a{
+      color:@redlinks;
+    }
+
+    p{
+      color:#333;
+      font-size:19px;
+      line-height:1.4;
+
+      @media @w900{
+       font-size:15px;
+      }
+
+    }
+  }
+}
+
+.profile-intro{
+  background:#000;
+  max-width:900px;
+  margin:0 auto;
+  img{width:100%;}
+  .display-flex;
+  .flex-direction(row);
+  .align-items(center);
+  color:#fff;
+  line-height:0;
+  .justify-content(space-between);
+
+  .left{
+    .flex(0 0 30%);
+    padding-left:6%;
+
+    @media @w900{
+      .flex(0 0 40%);
+    }
+  }
+
+  .right{
+    .flex(0 0 50%);
+  }
+
+  .info{
+    h2{
+      font-size: 45px;
+      line-height: 1.2;
+
+      @media @w900{
+        font-size:20px;
+      }
+    }
+
+    a{
+      color:#fff;
+      text-decoration:underline;
+    }
+
+    p{
+      margin-bottom:0;
+      font-size:16px;
+      font-family:@med-graphics;
+
+      @media @w900{
+        font-size:11px;
+        line-height:1.2;
+      }
+    }
+  }
+}
+
+
+.profile-text-container{
+  .display-flex;
+  .flex-direction(row);
+  .justify-content(space-around);
+  max-width: 900px;
+  margin:20px auto;
+  padding:0 10px;
+
+  @media @w900{
+   .flex-direction(column);
+  }
+
+  .profile-text{
+    .flex(0 0 60%);
+
+    p{
+      font-size:17px;
+      line-height:1.4;
+
+      @media @w900{
+       font-size:15px;
+      }
+    }
+
+  }
+
+  .cocktail{
+    .flex(0 0 30%);
+
+    .recipe{
+      padding:15px;
+      background:#fff4df;
+    }
+    
+    p{
+      font-size:14px;
+      line-height:1.4;
+
+      @media @w900{
+       font-size:13px;
+      }
+    }
+
+    .cocktail-name{
+      font-size:20px;
+      margin-bottom:10px;
+      font-weight:bold;
+    }
+
+    .ing{
+      margin-bottom:20px;
+      font-size:13px;
     }
   }
 }

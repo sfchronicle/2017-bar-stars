@@ -6,33 +6,107 @@
 <!-- /build -->
 
 
+<% var data = json.bar_stars %>
+
 
 
 
 <!-- Code that goes within WCM Freeform -->
 
-<div class="refuge-wrapper">
-	<div class="refuge-container">
+<div class="barstars-wrapper">
+	<div class="barstars-container">
 
 		<div class="flex-left">
 			<div class="subhead">
-				<h1>Bar Stars 2017</h1>The 2017 class of Bar Stars reflects the fact that great cocktails are today being made in every genre of establishment. These five bartenders work in Italian restaurants (Beretta; 54 Mint), in 100-year-old sailor hangouts (the Sea Star), in hotels (Dirty Habit). Even in a bar (Pagan Idol) where faux volcano periodically erupts and scorpion bowls are served aflame — yes, a bar that’s that kitschy — can churn out world-class cocktails.<br><div class="dtf-btn">Read the stories</div>
+				<h1><%= data.title %></h1>
+
+				<div class="credit"><%= data.date %></div>
+				<div class="credit">By <a href="emobley@sfchronicle.com">Esther Mobley</a> & Lou Bustamante</div>
+				<div class="credit">Photography by <a href="ryipp@sfchronicle.com">Russell Yip</a></div>
 			</div>
 		</div>
 
 		<div class="flex-right">
-			<img src="https://hearst.merlinone.net/mx/thumbs2017/tdir30611/ax066_439c_9.jpg">
+			<img src="http://ww1.hdnux.com/photos/67/52/66/14593420/5/1200x0.jpg">
 		</div>
 
 	</div>
+
+	<div class="barstars">
+
+		<div class="text-intro">
+			<% data.intro.forEach(function(txt) { %>
+				<p><%= txt.value %></p>
+			<% }); %>
+			<p><i>— Esther Mobley</i></p>
+			<br>
+			<p>Here are the 2017 Bar Stars:</p>
+		</div>
+
+
+<% json.bar_stars.barstars.forEach(function(bs) { %>
+	
+		<div class="profile">
+			<div class="profile-intro">
+				<div class="left">
+					<div class="info">
+						<h2><%= bs.name %></h2>
+						<p><b>Bar:</b> <%= bs.place %></p>
+						<p><b>Address:</b> <a href="<%= bs.google_map %>" target="_blank"><%= bs.address %></a></p>
+						<p><b>Cocktail:</b> <%= bs.cocktail %></p>
+					</div>
+				</div>
+				<div class="right">
+					<div class="bs-image"><img src="http://ww1.hdnux.com/photos/67/52/66/<%= bs.img %>/7/1200x0.jpg"></div>
+				</div>
+			</div>
+			<div class="profile-text-container">
+				<div class="profile-text">
+					<% bs.text.forEach(function(t){ %>
+					<p><%= t.value %></p>
+					<%});%>
+					<p><i>— <%= bs.author %></i></p>
+				</div>
+				<div class="cocktail">
+					<div class="recipe">
+						<div class="cocktail-name"><%=bs.cocktail%></div>
+
+						<% bs.recipe.forEach(function(r){ %>
+
+						<% if ( r.type == 'text' ){ %>
+						<p><%= r.value %></p>
+						<%}%>
+
+						<% if ( r.type == 'ing' ){ %>
+						<div class="ing">
+						<% r.value.forEach(function(i){ %>
+						<%= i.value%><br>
+						<%});%>
+						</div>
+						<%}%>
+
+						<% if ( r.type == 'Instructions' ){ %>
+							<p><b>Instructions:</b> <%= r.value%></p>
+						<%}%>
+
+						<% if ( r.type == 'Note' ){ %>
+							<p><b>Note:</b> <%= r.value%></p>
+						<%}%>
+
+						<% if ( r.type == 'Second' ){ %>
+							<p><b>Second Note:</b> <%= r.value%></p>
+						<%}%>
+						
+						<%});%>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<%});%>
+
+	</div>
 </div>
-
-<script>$(".dtf-btn").click(function() {
-  $('html,body').animate({
-     scrollTop: $(".hc_sub_topstories").offset().top
-  });
-});</script>
-
 
 
 
